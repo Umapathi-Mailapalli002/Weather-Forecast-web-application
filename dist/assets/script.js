@@ -249,7 +249,7 @@ function gotPosition(position) {
          <div class="flex justify-start items-center"><img class="size-10" src="/assets/wind-BryCWBRu.gif" alt=""><h4>${weatherItem.wind.speed}M/S</h4></div>
          <div class="flex justify-start items-center"><img class="size-10" src="/assets/humidity-Xwrmwjmh.gif" alt=""><h4>${weatherItem.main.humidity}%</h4></div>
       </div>
-          <div class="w-40 flex-col justify-end items-center lg:ml-28"><img class="mr-3" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
+          <div class="w-40 lg:w-20 flex-col justify-end items-center"><img class="" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
           <div class="w-40 flex justify-center  items-center text-center"> <h4 class="uppercase font-semibold absolute">${weatherItem.weather[0].description}</h4></div>
           </div>
         </div>
