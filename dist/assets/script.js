@@ -271,7 +271,7 @@ const getWeatherDetails = async () => {
     }
     return;
   }
-  const WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
+  const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
   try {
     const response = await fetch(WEATHER_API_URL);
     // check for the response
@@ -387,16 +387,17 @@ function gotPosition(position) {
 
   //api call for find the city name
   const currentPosition = async () => {
-    var lat = position.coords.latitude;
+    try {
+      var lat = position.coords.latitude;
     var lon = position.coords.longitude;
-    const response = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+    const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
     if (!response.ok) {
       throw new Error("facing some issue fecthing the current position");
     }
     const data = await response.json();
     const currentCityName = data[0].name;
     // fetching weather of current location
-    const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${currentCityName}&appid=${API_KEY}&units=metric`);
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${currentCityName}&appid=${API_KEY}&units=metric`);
     if (!res.ok) {
       throw new Error("facing some issue fecthing the current position");
     }
@@ -424,6 +425,11 @@ function gotPosition(position) {
         break;
 
     }
+    } catch (error) {
+      const errorMessage = encodeURIComponent(error.message);
+        window.location.href = `error.html?message=${errorMessage}`;
+    }
+    
 
     const createWeatherCard = (weatherItem) => {
 
@@ -528,7 +534,7 @@ const searchFun = () => {
 // tabular data generated dynamically throuhg the api
 const cityTable = async () => {
   try {
-    const response = await fetch(`https://script.google.com/macros/s/AKfycbzket-ZwU6tpfq73mso0a3JxZsnn0kkhlq0gJUj9FqSZYzOT1bM0Y-CnskJPy3VVQvb/exec`);
+    const response = await fetch(`https://script.googleusercontent.com/macros/echo?user_content_key=AA4hzCdgMXY3dPVvOMDs6m9ZuuTqaj8rVWh7BD6gLp1WFVvgR3hz1glY-WnF96_VpTVVyiFnkYsfc4s4fE6ItEZ3iKEfeZBMm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnDlrxpDcW2eBFvJOwVwEsKpxLU6p-_KrRouFBWrKZ74CHO22alSNdN4f6B1Gs06SHao3vVXoto39xQ0x4ZdopAvNeXgmLLIU4g&lib=MFFIIg6yn_IOmpz-rA9pzeRy6b25xx724`);
     if (!response.ok) {
       throw new Error("Error on fetching the table data")
     }
