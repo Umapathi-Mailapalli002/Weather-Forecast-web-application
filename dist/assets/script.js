@@ -528,12 +528,13 @@ const searchFun = () => {
 // tabular data generated dynamically throuhg the api
 const cityTable = async () => {
   try {
-    const response = await fetch(`https://script.google.com/macros/s/AKfycbymf94jOAnLGk__DR5JM0q1sWn0LwKD2XnkYrtIWoq5Ge2nFClFDJ7vq3v2VsBbjn58/exec`);
+    const response = await fetch(`https://script.google.com/macros/s/AKfycbzket-ZwU6tpfq73mso0a3JxZsnn0kkhlq0gJUj9FqSZYzOT1bM0Y-CnskJPy3VVQvb/exec`);
     if (!response.ok) {
       throw new Error("Error on fetching the table data")
     }
     const data = await response.json();
     const result = data.data;
+    console.log(result)
 
     // Define the redirectToOpenWeather function in the global scope
     window.redirectToOpenWeather = function (geoname) {
