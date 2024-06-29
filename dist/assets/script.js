@@ -17,6 +17,19 @@ const dropDown = document.getElementById("dropDown");
 
 var locationiqKey = "pk.82e9b53e4830b1bcbd15e15c112ee58a";
 
+// dailog pop up
+const dailogBox = document.getElementById("dailogBox");
+const info = document.getElementById("info");
+//hide dailog box first
+dailogBox.style.visibility ="hidden";
+function showInfo(){
+  dailogBox.style.visibility ="visible";
+}
+//after mouse hover hide the dailog box
+function hideInfo(){
+  dailogBox.style.visibility ="hidden";
+}
+
 //remove the skeletonloading
 const removeSkeleton = (data) => {
 
@@ -540,7 +553,6 @@ const cityTable = async () => {
     }
     const data = await response.json();
     const result = data.data;
-    console.log(result)
 
     // Define the redirectToOpenWeather function in the global scope
     window.redirectToOpenWeather = function (geoname) {

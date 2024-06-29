@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+
+</head>
+<body style="-webkit-background-size:cover; -moz-background-size: cover; -moz-background-size:cover ; background-size: cover;" class="bg-[url('img.jpg')] bg-no-repeat bg-blend-multiply bg-slate-300 bg-cover ">
+  <div class="lg:flex">
+    <div>
+      <div class="font-[roboto] text-center lg:justify-start lg:w-[30vw] lg:mx-5 font-bold mt-5 flex justify-center ">
+        <input id="location" type="text"
+          class="text-[1.3rem] text-center w-[80vw] focus:outline-none h-10 rounded-l-3xl bg-white" autocomplete="additional-name" autocapitalize="on">
+        <div id="search-btn" class="w-14 bg-white rounded-r-3xl text-3xl flex justify-center items-center"><i
+            class="fa-solid fa-magnifying-glass-location cursor-pointer lg:p-1"></i></div>
+      </div>
+      <div>
+        <div
+          class="lg:justify-start lg:w-[30vw] lg:mx-5 flex justify-center items-center my-3 sm:mx-[4vw] font-semibold text-[1.5rem]">
+          <hr class="w-[100%] mx-3 bg-white">or
+          <hr class="w-[100%] bg-white mx-3">
+        </div>
+        <div
+          class="text-white lg:justify-start bg-gradient-to-r from-[#7B91FF] to-[#95BEFF] lg:w-[30vw] lg:mx-5 lg:flex lg:justify-center h-[5vh] sm:mx-[5vw] mx-b-[1px] border-b-gray-400 rounded-3xl flex justify-center items-center font-semibold" id="currentLocation">
+          Use Current Location</div>
+      </div>
+
+      <div class="flex justify-center items-center my-8 lg:justify-start lg:mx-5 text-white">
+        <div
+          class="w-[90vw] h-[30vh] lg:w-[30vw] lg:h-[40vh] lg:justify-start backdrop-brightness-0 backdrop-opacity-10 rounded-3xl flex justify-between">
+          <div class="mt-6 font-medium mx-8">
+            <h2 class="animate-pulse text-[1.7rem] w-14 bg-gray-400" id="city-Name">___</h2>
+            <h3 id="date">__-__-____</h3>
+            <div class="flex justify-start items-center"><img class="size-10" src="temp.gif" alt=""><h4 class="flex" id="temp">___°C</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="wind.gif" alt=""><h4 id="wind">__M/S</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="humidity.gif" alt=""><h4 id="humidity"> __%</h4></div>
+          </div>
+          <div class="w-40 flex-col justify-end items-center lg:ml-28"><img class="size-32 ml-5 mt-8 " src="https://openweathermap.org/img/wn/10d@4x.png" id="weather-icon" alt="weather-icon">
+           <div class="w-40 flex justify-center  items-center text-center"><h4 class="uppercase font-semibold absolute " id="description">Moderate Rain</h4></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center lg:mt-10 lg:w-[65vw]">
+      <div
+        class="w-[90vw] h-[43vh] backdrop-brightness-0 flex justify-between md:justify-center lg:justify-center backdrop-opacity-10 rounded-3xl overflow-auto no-scrollbar lg:h-[60vh]">
+        <table class=" w-[90vw] mx-5 h-[40vh]">
+          <thead class="border-b border-b-gray-400 sticky top-0 bg-black text-white">
+            <tr class="">
+              <th>City Name</th>
+              <th>Country</th>
+              <th>TimeZone</th>
+            </tr>
+          </thead>
+          <tbody class="" id="citiesData">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+   <!-- 4 days forecast -->
+  <div class="my-4 w-[100vw] lg:my-0 flex-wrap lg:inline-flex lg:-mt-7 text-white" id="weather-cards">
+    <div class="flex justify-center items-center lg:ml-2 mr-1">
+      <div
+        class=" w-[90vw] lg:w-[24.5vw] lg:h-[30vh] h-[30vh] backdrop-brightness-0 backdrop-opacity-10 rounded-3xl flex justify-between">
+        <div class="card mt-6 font-medium mx-8">
+            <h3>__-__-____</h3>
+            <div class="flex justify-start items-center"><img class="size-10" src="temp.gif" alt=""><h4 class="flex">___°C</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="wind.gif" alt=""><h4>__M/S</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="humidity.gif" alt=""><h4> __%</h4></div>
+        </div>
+        <div class="w-40 "><img src="https://openweathermap.org/img/wn/10d@4x.png" alt="weather-icon">
+          <h4 class="uppercase font-semibold">Moderate Rain</h4>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center items-center my-3 lg:mr-1">
+      <div
+        class="w-[90vw] lg:w-[24.5vw] lg:h-[30vh] h-[30vh] backdrop-brightness-0 backdrop-opacity-10 rounded-3xl flex justify-between">
+        <div class="card mt-6 font-medium mx-8">
+            <h3>__-__-____</h3>
+            <div class="flex justify-start items-center"><img class="size-10" src="temp.gif" alt=""><h4 class="flex">___°C</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="wind.gif" alt=""><h4>__M/S</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="humidity.gif" alt=""><h4> __%</h4></div>
+        </div>
+        <div class="w-40 "><img src="https://openweathermap.org/img/wn/10d@4x.png" alt="weather-icon">
+          <h4 class="uppercase font-semibold">Moderate Rain</h4>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center items-center my-3 lg:mr-1">
+      <div
+        class="w-[90vw] lg:w-[24.5vw] lg:h-[30vh] h-[30vh] backdrop-brightness-0 backdrop-opacity-10 rounded-3xl flex justify-between">
+        <div class=" card mt-6 font-medium mx-8">
+          
+            <h3>__-__-____</h3>
+            <div class="flex justify-start items-center"><img class="size-10" src="temp.gif" alt=""><h4 class="flex">___°C</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="wind.gif" alt=""><h4>__M/S</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="humidity.gif" alt=""><h4> __%</h4></div>
+        </div>
+        <div class="w-40 "><img src="https://openweathermap.org/img/wn/10d@4x.png" alt="weather-icon">
+          <h4 class="uppercase font-semibold">Moderate Rain</h4>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center items-center my-3 lg:mr-1">
+      <div
+        class="w-[90vw] lg:w-[24.5vw] lg:h-[30vh] h-[30vh] backdrop-brightness-0 backdrop-opacity-10 rounded-3xl flex justify-between">
+        <div class="card mt-6 font-medium mx-8">
+            <h3>__-__-____</h3>
+            <div class="flex justify-start items-center"><img class="size-10" src="temp.gif" alt=""><h4 class="flex">___°C</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="wind.gif" alt=""><h4>__M/S</h4></div>
+            <div class="flex justify-start items-center"><img class="size-10" src="humidity.gif" alt=""><h4> __%</h4></div>
+        </div>
+        <div class="w-40 "><img src="https://openweathermap.org/img/wn/10d@4x.png" alt="weather-icon">
+          <h4 class="uppercase font-semibold">Moderate Rain</h4>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

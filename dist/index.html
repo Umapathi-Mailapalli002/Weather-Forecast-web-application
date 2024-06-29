@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
+    <title>Weatherio</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -51,6 +51,8 @@
     </div>
     <!-- search filter -->
     <div class="flex justify-end mb-3 ml-[25vw] lg:ml-[80vw] sm:ml-[59vw] -mt-9 lg:my-3 mr-10 lg:mr-10  h-7 absolute">
+      <!-- info dailog box -->
+      <div class="flex absolute -mt-4"><i class="fa-solid fa-circle-info" id="info" onmouseover="showInfo()" onmouseleave="hideInfo()"></i><div class="relative font-[arial] -mt-12 lg:mt-2 z-10 bg-black rounded-2xl p-3 text-white font-medium" id="dailogBox">Only added indian cities due to load issue</div></div>
       <select class="focus:outline-none w-[100px] text-black font-medium rounded-l-lg" name="select" id="dropDown">
         <option value="City Name">City Name</option>
         <option value="Country">Country</option>
