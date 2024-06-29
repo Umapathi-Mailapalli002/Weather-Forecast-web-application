@@ -21,7 +21,7 @@ A web application providing today's weather and a four-day forecast. Explore wea
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Umapathi-Mailapalli002/Weather-Forecast-web-application
+   git clone https://github.com/Umapathi-Mailapalli002/Weather-Forecast-web-application.git
    ```
 
 2. Navigate into the project directory:
