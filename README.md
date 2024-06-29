@@ -17,23 +17,53 @@ A web application providing today's weather and a four-day forecast. Explore wea
 - Tailwind CSS for styling.
 - Netlify for deployment.
 
-### Installation and Usage
+## Installation
 
-Check out the [Installation](#installation) and [Usage](#usage) sections in the [README.md](./README.md) file for instructions on setting up and running the application.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Umapathi-Mailapalli002/Weather-Forecast-web-application
+   ```
 
+2. Navigate into the project directory:
+   ```bash
+   cd Weather-Forecast-web-application
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+1. Start the application:
+   ```bash
+   npm start
+   ```
+
+2. Open your web browser and go to `http://localhost:3000` to view the application.
 
 ### Links
 
 - [Live Demo](weatheri0.netlify.app)
 - [Repository](https://github.com/Umapathi-Mailapalli002/Weather-Forecast-web-application/)
 
-### Contributing
+## Contributing
 
-Contributions are welcome! Check out the [Contributing](./CONTRIBUTING.md) guide for guidelines on how to contribute to this project.
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/new-feature`).
+6. Create a new Pull Request.
 
 
-### License
+## License
 
-This project is licensed under the MIT License(./LICENSE).
+This project is licensed under the [MIT License](LICENSE).
+
+---
 
 
